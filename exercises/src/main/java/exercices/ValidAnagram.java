@@ -10,7 +10,7 @@ An anagram is a string that contains the exact same characters as another string
 
 public class ValidAnagram {
     public boolean isAnagram(String s, String t) {
-        //if strings have different lengths, than for sure they are not anagrams
+        //if strings have different lengths, then for sure they are not anagrams
         if(s.length() != t.length()) {
             return false;
         }
@@ -28,13 +28,11 @@ public class ValidAnagram {
 
             //for earch character in t we decrease the counter of the characters
             count.put(t.charAt(i), count.getOrDefault(t.charAt(i), 0) - 1);
-            }
             //if the charachter is different and the value left is zero, we remove the key from the map
             if(s.charAt(i) != t.charAt(i) && count.get(t.charAt(i)) == 0) {
                 count.remove(t.charAt(i));
             }
         }
-
         return count.values().isEmpty();
     }
 }
